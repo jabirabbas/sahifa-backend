@@ -1,0 +1,87 @@
+/*
+.step-maker-container {
+  position: relative;
+  height: 50px;
+}
+
+.step-maker-container hr {
+  display: none;
+  position: absolute;
+  top: 5px;
+  z-index: 1;
+  height: 2px;
+  background: #b7b5b5;
+  border: none;
+}
+
+div.step-maker {
+  position: absolute;
+  display: table;
+  text-align: center;
+  z-index: 2;
+}
+
+div.step:before {
+    position: absolute;
+    left: -50%;
+    content: "";
+    height: 2px;
+    width: 100%;
+    background-color: #b5b7b7;
+    top: 24px;
+    z-index: -1;
+}
+
+div.step:first-child:before{
+  display: none;
+}
+
+div.step.active:before {
+  background-color: #0181b8;
+}
+
+
+div.step-maker .step {
+  text-align: center;
+  float: left;
+  position: relative;
+}
+
+div.step-maker .step.active > label.step-number {
+  color: #fff;
+  border: 2px solid #0181b8;
+  background-color: #0181b8;
+}
+
+div.step-maker .step.active > label:last-child { color: #0181b8; }
+
+div.step-maker .step > label.step-number {
+  background-color: #fff;
+  color: #b7b5b5;
+  border-radius: 50%;
+  border: 2px solid #b7b5b5;
+  display: inline-block;
+  height: 30px;
+  width: 30px;
+  margin-bottom: 6px;
+  position: relative;
+  margin-top: 10px;
+  font-size:15px;
+}
+
+div.step-maker .step > label.step-number > span {
+  font-weight: bold;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+div.step-maker .step > label { display: block; }
+
+div.step-maker .step > label:last-child {
+  font-weight: bold;
+  word-break: break-all;
+  color: #b7b5b5;
+}
+*/
