@@ -36,7 +36,7 @@ class Verse extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['chapter_id', 'verse_no', 'verse_en', 'word_count'], 'required'],
+            [['chapter_id', 'verse_no', 'verse_ar', 'word_count'], 'required'],
             [['chapter_id', 'verse_no', 'word_count'], 'integer'],
             [['verse_en', 'verse_ar', 'verse_ur', 'verse_fa', 'verse_hi'], 'string'],
             [['chapter_id'], 'exist', 'skipOnError' => true, 'targetClass' => Chapter::className(), 'targetAttribute' => ['chapter_id' => 'id']],

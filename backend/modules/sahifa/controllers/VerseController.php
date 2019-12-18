@@ -116,7 +116,6 @@ class VerseController extends Controller
         $wModel = new Words();
 
         if ($model->load(Yii::$app->request->post())) {
-            exit;
             if($model->save()){
                 //deleting all words before adding new one
                 Words::deleteAll(['verse_id'=>$model->id]);
@@ -137,7 +136,7 @@ class VerseController extends Controller
                     $wModel->save();
                 }
                 Yii::$app->session->setFlash('success','Verse updated successfully.');
-                return $this->redirect(['index']);    
+                return $this->redirect(['index?VerseSearch[chapter_id]='.$model->chapter_id]);    
             }
         }
 

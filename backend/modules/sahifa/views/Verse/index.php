@@ -43,6 +43,7 @@ $this->params['breadcrumbs'][] = $this->title;
             <?= GridView::widget([
                 'dataProvider' => $dataProvider,
                 'filterModel' => $searchModel,
+                'layout'=> "{summary}\n{items}",
                 'options' => ['class'=>'table-wrapper table-scroll'],
                 'columns' => [
                     ['class' => 'yii\grid\SerialColumn'],
@@ -50,7 +51,7 @@ $this->params['breadcrumbs'][] = $this->title;
                     [
                         'attribute' => 'chapter.title_en',
                         'label' => 'Chapter',
-                        'filter' => Html::activeDropDownList($searchModel, 'chapter_id', ArrayHelper::map(\app\modules\sahifa\models\Chapter::find()->all(),'id','title_en'),['class'=>'form-control','prompt' => 'Select Status'])
+                        'filter' => Html::activeDropDownList($searchModel, 'chapter_id', ArrayHelper::map(\app\modules\sahifa\models\Chapter::find()->all(),'id','title_en'),['class'=>'form-control','prompt' => 'Select Chapter'])
                     ],
                     [
                         'attribute' => 'verse_no',

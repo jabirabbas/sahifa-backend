@@ -46,6 +46,9 @@ class ChapterSearch extends Chapter
 
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
+            /*'pagination' => [
+                'pageSize' => 10,
+            ],*/
         ]);
 
         $this->load($params);

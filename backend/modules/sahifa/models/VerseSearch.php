@@ -46,7 +46,10 @@ class VerseSearch extends Verse
 
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
+            'pagination' => ['pageSize' => 100]
         ]);
+
+        if(empty($params['VerseSearch']['chapter_id'])) $params['VerseSearch']['chapter_id'] = 1;
 
         $this->load($params);
 
