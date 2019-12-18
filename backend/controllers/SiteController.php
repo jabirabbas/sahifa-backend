@@ -18,20 +18,6 @@ class SiteController extends Controller
     public function behaviors()
     {
         return [
-            'access' => [
-                'class' => AccessControl::className(),
-                'rules' => [
-                    [
-                        'actions' => ['login', 'error','signup'.'reset-password'],
-                        'allow' => true,
-                    ],
-                    [
-                        'actions' => ['logout', 'index','change-password'],
-                        'allow' => true,
-                        'roles' => ['@'],
-                    ],
-                ],
-            ],
             'verbs' => [
                 'class' => VerbFilter::className(),
                 'actions' => [
@@ -100,7 +86,7 @@ class SiteController extends Controller
     {
 
         $this->layout = 'login_layout';
-        $model = new Users();
+        $model = new \common\models\User();
         
         if ($model->load(Yii::$app->request->post())){
             $model->password = password_hash($model->password, PASSWORD_DEFAULT);
@@ -118,9 +104,9 @@ class SiteController extends Controller
     public function actionForgot()
     {
         $this->layout = 'login_layout';
-        $lmodel = new LoginForm();
+        $model = new \common\models\User();
         if (Yii::$app->request->post()) {
-            $model = \app\models\Users::findOne(['email'=>Yii::$app->request->post()['LoginForm']['email_address']]);
+            $model = \app\models\Users::findOne(['email'=>Yii::$app->request->post('email')]);
             if($model){
                 $model->forgot_pass_code = uniqid();
                 $model->forgot_pass_date = date('Y-m-d H:i:s');
@@ -134,7 +120,7 @@ class SiteController extends Controller
         }
 
         return $this->render('forgot', [
-            'model' => $lmodel,
+            'model' => $model,
         ]);
     }
 
@@ -184,6 +170,15 @@ class SiteController extends Controller
             $model->save(false);
             Yii::$app->session->setFlash('success', 'Password modified successfully.');
             return 1;
+        }
+    }
+
+    public function actionError(){
+        if(empty(Yii::$app->user->identity)){
+            header('Location: '.Url::base().'/index.php/site/login');
+            exit;
+        } else {
+            return true;
         }
     }
 

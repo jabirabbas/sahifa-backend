@@ -19,10 +19,10 @@ class Module extends \yii\base\Module
      */
     public function init()
     {
-        if(empty(Yii::$app->user->identity)){
+        /*if(empty(Yii::$app->user->identity)){
             header('Location: '.Url::base().'/index.php/site/login');
             exit;
-        }
+        }*/
         parent::init();
     }
 }

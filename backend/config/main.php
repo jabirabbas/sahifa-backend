@@ -59,12 +59,8 @@ return [
         'rules' => [
             [
                 'allow' => true,
-                'actions' => ['login','signup','forgot','reset'],
+                'actions' => ['login','signup','reset','forgot']
             ],
-            /*[
-                'allow' => true,
-                'controllers' => ['epnm-monitoring','dcnm-monitoring']
-            ],*/
             [
                 'allow' => true,
                 'roles' => ['@'],

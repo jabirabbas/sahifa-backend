@@ -104,8 +104,12 @@ class UserController extends Controller
     {
         $this->layout = false;    
         $model = $this->findModel($id);
-
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+        $model->password_hash = '';
+        if ($model->load(Yii::$app->request->post())){
+            if(!empty($model->password_hash)){
+                $model->password_hash = Yii::$app->security->generatePasswordHash($model->password_hash);
+            }
+            $model->save();
             Yii::$app->session->setFlash('success','User updated successfully.');
             return $this->redirect(['index']);
         }
